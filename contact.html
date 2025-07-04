@@ -25,15 +25,27 @@
   <main>
     <h1>Contact Us</h1>
     <p>
-      Ready to start your next design project or have questions? Reach out to us!
+      Ready to start your next design project or have questions? Reach out to us using the form below!
     </p>
     <p>
       Hablamos español y estamos aquí para ayudarte con tus necesidades de diseño.
-    </p>
     <p>
-      <strong>Email:</strong> <a href="mailto:info.jazhieldesigns@gmail.com">info.jazhieldesigns@gmail.com</a><br>
-      <strong>Phone:</strong> <a href="tel:7045611937">704 561 1937</a>
+      <strong>Contact Information:</strong> <br>
+      <strong>Email:</strong> <a id="contact-email"></a><br>
+      <strong>Phone:</strong> <a id="contact-phone"></a>
     </p>
+    <form action="https://formsubmit.co/fc57da16977632792e3cff0d6e6eec3d" method="POST" class="contact-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
   </main>
   <footer class="site-footer">
     <div class="footer-content">
@@ -41,7 +53,7 @@
         <strong>Jazhiel Design's</strong> &mdash; Creative Design Services
       </div>
       <div>
-        <a href="mailto:info.jazhieldesigns@gmail.com" aria-label="Email Jazhiel Design's">info.jazhieldesigns@gmail.com</a>
+        <a id="footer-email" aria-label="Email Jazhiel Design's"></a>
       </div>
       <div class="footer-social">
         <a href="https://facebook.com/jazhieldesigns" target="_blank" rel="noopener" aria-label="Facebook">
@@ -69,6 +81,39 @@
     });
     backToTop.addEventListener('click', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // --- Contact Info De-obfuscation ---
+    document.addEventListener('DOMContentLoaded', function() {
+      // Your contact details are stored here in parts
+      const emailUser = 'info.jazhieldesigns';
+      const emailDomain = 'gmail.com';
+      const phoneParts = ['704', '561', '1937'];
+
+      // Combine the parts into full strings
+      const fullEmail = `${emailUser}@${emailDomain}`;
+      const fullPhone = phoneParts.join('');
+      const formattedPhone = phoneParts.join(' ');
+
+      // --- Update Email Links ---
+      const contactEmailLink = document.getElementById('contact-email');
+      if (contactEmailLink) {
+        contactEmailLink.href = `mailto:${fullEmail}`;
+        contactEmailLink.textContent = fullEmail;
+      }
+
+      const footerEmailLink = document.getElementById('footer-email');
+      if (footerEmailLink) {
+        footerEmailLink.href = `mailto:${fullEmail}`;
+        footerEmailLink.textContent = fullEmail;
+      }
+
+      // --- Update Phone Link ---
+      const contactPhoneLink = document.getElementById('contact-phone');
+      if (contactPhoneLink) {
+        contactPhoneLink.href = `tel:${fullPhone}`;
+        contactPhoneLink.textContent = formattedPhone;
+      }
     });
   </script>
 </body>

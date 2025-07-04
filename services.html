@@ -55,7 +55,7 @@
         <strong>Jazhiel Design's</strong> &mdash; Creative Design Services
       </div>
       <div>
-        <a href="mailto:info.jazhieldesigns@gmail.com" aria-label="Email Jazhiel Design's">info.jazhieldesigns@gmail.com</a>
+        <a id="footer-email" aria-label="Email Jazhiel Design's"></a>
       </div>
       <div class="footer-social">
         <a href="https://facebook.com/jazhieldesigns" target="_blank" rel="noopener" aria-label="Facebook">
@@ -84,7 +84,18 @@
     backToTop.addEventListener('click', function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+    
+    // --- Contact Info De-obfuscation ---
+    document.addEventListener('DOMContentLoaded', function() {
+      const emailUser = 'info.jazhieldesigns';
+      const emailDomain = 'gmail.com';
+      const fullEmail = `${emailUser}@${emailDomain}`;
+      const footerEmailLink = document.getElementById('footer-email');
+      if (footerEmailLink) {
+        footerEmailLink.href = `mailto:${fullEmail}`;
+        footerEmailLink.textContent = fullEmail;
+      }
+    });
   </script>
 </body>
-
 </html>

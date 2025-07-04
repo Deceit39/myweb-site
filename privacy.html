@@ -56,7 +56,7 @@
  
     <h2>Your Rights</h2>
     <p>
-      You may request to access, correct, or delete your personal information by contacting us at <a href="mailto:info.jazhieldesigns@gmail.com">info.jazhieldesigns@gmail.com</a>.
+      You may request to access, correct, or delete your personal information by contacting us at <a id="privacy-email-1"></a>.
     </p>
     <h2>Changes to This Policy</h2>
     <p>
@@ -64,7 +64,7 @@
     </p>
     <h2>Contact Us</h2>
     <p>
-      If you have questions about this Privacy Policy, please email us at <a href="mailto:info.jazhieldesigns@gmail.com">info.jazhieldesigns@gmail.com</a>.
+      If you have questions about this Privacy Policy, please email us at <a id="privacy-email-2"></a>.
     </p>
   </main>
   <footer class="site-footer">
@@ -73,7 +73,7 @@
         <strong>Jazhiel Design's</strong> &mdash; Creative Design Services
       </div>
       <div>
-        <a href="mailto:info.jazhieldesigns@gmail.com" aria-label="Email Jazhiel Design's">info.jazhieldesigns@gmail.com</a>
+        <a id="footer-email" aria-label="Email Jazhiel Design's"></a>
       </div>
       <div class="footer-social">
         <a href="https://facebook.com/jazhieldesigns" target="_blank" rel="noopener" aria-label="Facebook">
@@ -102,9 +102,24 @@
     backToTop.addEventListener('click', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-  </script>
-</body>
-</html>
+    
+    // --- Contact Info De-obfuscation for all links on this page ---
+    document.addEventListener('DOMContentLoaded', function() {
+      const emailUser = 'info.jazhieldesigns';
+      const emailDomain = 'gmail.com';
+      const fullEmail = `${emailUser}@${emailDomain}`;
+
+      // List of all element IDs to update with the email
+      const emailElementIds = ['footer-email', 'privacy-email-1', 'privacy-email-2'];
+
+      emailElementIds.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.href = `mailto:${fullEmail}`;
+          element.textContent = fullEmail;
+        }
+      });
+    });
   </script>
 </body>
 </html>

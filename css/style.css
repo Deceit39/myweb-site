@@ -359,6 +359,75 @@ footer {
   margin-bottom: 2.5em;
 }
 
+/* Contact Form Styles */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Spacing between form elements */
+  margin: 2.5em 0; /* Add more vertical spacing */
+}
+
+.contact-form label {
+  font-weight: bold;
+  font-family: Oswald, Arial, sans-serif; /* Use header font for labels */
+  color: #333;
+  margin-bottom: -8px; /* Pull label closer to input */
+  font-size: 1.1em;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: Roboto2, Arial, sans-serif;
+  font-size: 1em;
+  background-color: #faf9f6; /* Use site's light background */
+  box-sizing: border-box; /* Include padding and border in width */
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #ffb300; /* Accent color on focus */
+  box-shadow: 0 0 8px rgba(255, 179, 0, 0.3); /* Subtle glow effect */
+}
+
+.contact-form button {
+  background: #ffb300;
+  color: #222;
+  padding: 12px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: all 0.2s;
+  display: inline-block;
+  border: none; /* Remove default button border */
+  cursor: pointer;
+  align-self: flex-start; /* Don't stretch full width */
+  font-family: Oswald, sans-serif; /* Match other buttons */
+  font-size: 1.1em;
+  margin-top: 10px;
+}
+
+.contact-form button:hover {
+  background: #222;
+  color: #ffb300;
+  text-decoration: none;
+  transform: translateY(-2px) scale(1.04);
+}
+
+.contact-details {
+  text-align: center;
+  margin-top: 2em;
+  font-size: 1.1em;
+}
+
 /* ==========================================================================
    Media Queries for Responsiveness
    ========================================================================== */
@@ -403,6 +472,13 @@ footer {
 
   .gallery img {
       width: 45%; /* Show two images side-by-side */
+  }
+
+  .contact-details {
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
   /* Center footer content on mobile */
