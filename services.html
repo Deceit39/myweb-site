@@ -71,31 +71,6 @@
     </div>
   </footer>
   <button id="backToTop" title="Back to Top" aria-label="Back to Top"></button>
-  <script>
-    // Back to Top button logic
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 200) {
-        backToTop.style.display = 'block';
-      } else {
-        backToTop.style.display = 'none';
-      }
-    });
-    backToTop.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    
-    // --- Contact Info De-obfuscation ---
-    document.addEventListener('DOMContentLoaded', function() {
-      const emailUser = 'info.jazhieldesigns';
-      const emailDomain = 'gmail.com';
-      const fullEmail = `${emailUser}@${emailDomain}`;
-      const footerEmailLink = document.getElementById('footer-email');
-      if (footerEmailLink) {
-        footerEmailLink.href = `mailto:${fullEmail}`;
-        footerEmailLink.textContent = fullEmail;
-      }
-    });
-  </script>
+  <script src="javascript/script.js"></script>
 </body>
 </html>

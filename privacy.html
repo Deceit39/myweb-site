@@ -84,42 +84,11 @@
         </a>
       </div>
       <div class="footer-copy">
-        &copy; Jazhiel Design's 2025. All rights reserved.
+        &copy; Jazhiel's Designs 2025. All rights reserved.
       </div>
     </div>
   </footer>
   <button id="backToTop" title="Back to Top" aria-label="Back to Top"></button>
-  <script>
-    // Back to Top button logic
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 200) {
-        backToTop.style.display = 'block';
-      } else {
-        backToTop.style.display = 'none';
-      }
-    });
-    backToTop.addEventListener('click', function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    
-    // --- Contact Info De-obfuscation for all links on this page ---
-    document.addEventListener('DOMContentLoaded', function() {
-      const emailUser = 'info.jazhieldesigns';
-      const emailDomain = 'gmail.com';
-      const fullEmail = `${emailUser}@${emailDomain}`;
-
-      // List of all element IDs to update with the email
-      const emailElementIds = ['footer-email', 'privacy-email-1', 'privacy-email-2'];
-
-      emailElementIds.forEach(id => {
-        const element = document.getElementById(id);
-        if (element) {
-          element.href = `mailto:${fullEmail}`;
-          element.textContent = fullEmail;
-        }
-      });
-    });
-  </script>
+  <script src="javascript/script.js"></script>
 </body>
 </html>
