@@ -303,26 +303,26 @@ footer {
   filter: brightness(0) invert(1) grayscale(0) opacity(1);
 }
 
+
 /* Back to Top Button */
 #backToTop {
   display: none;
   position: fixed;
   bottom: 20px; right: 20px;
   z-index: 999;
-  background: #ffb300;
-  color: #222;
+  background: #ffb300 url('../images/up-arrow.svg') no-repeat center center;
+  background-size: 24px;
   border: none;
   border-radius: 50%;
   width: 48px; height: 48px;
-  font-size: 2em;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   transition: all 0.2s;
 }
 
 #backToTop:hover {
-  background: #222;
-  color: #ffb300;
+  background: #222 url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23ffb300'><path d='M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z'/></svg>") no-repeat center center;
+  background-size: 24px;
   transform: translateY(-4px) scale(1.08);
 }
 
