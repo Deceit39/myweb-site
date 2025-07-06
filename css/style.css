@@ -1,16 +1,19 @@
+
+
 @font-face {
-    font-family: Roboto2;
-    src: url(../Fonts/Roboto/Roboto-VariableFont_wdth\,wght.ttf);
+    font-family: 'Roboto';
+    /* Corrected the path from 'Fonts' to 'fonts' and specified the format */
+    src: url('../fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf') format('truetype-variations');
+    /* Defining the supported weight range for the variable font */
+    font-weight: 100 900;
 }
 
 @font-face {
-    font-family: Oswald;
-    src: url(../Fonts/Oswald/Oswald-VariableFont_wght.ttf);
-}
-
-@font-face {
-  font-family: Abolition;
-  src: url(https://use.typekit.net/nbx2poz.css);
+    font-family: 'Oswald';
+    /* Corrected the path from 'Fonts' to 'fonts' and specified the format */
+    src: url('../fonts/Oswald/Oswald-VariableFont_wght.ttf') format('truetype-variations');
+    /* Defining the supported weight range for the variable font */
+    font-weight: 200 700;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -24,7 +27,7 @@ body {
   margin: 0;
   background: #faf9f6;
   color: #222;
-  font-family: Roboto2, Arial, sans-serif;
+  font-family: Roboto, Arial, sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -175,7 +178,7 @@ h2 {
 }
 
 p {
-  font-family: Roboto2, Arial, sans-serif;
+  font-family: Roboto, Arial, sans-serif;
   font-size: 1.1em;
   line-height: 1.7;
 }
@@ -382,7 +385,7 @@ footer {
   padding: 14px;
   border: 1px solid #ddd;
   border-radius: 6px;
-  font-family: Roboto2, Arial, sans-serif;
+  font-family: Roboto, Arial, sans-serif;
   font-size: 1em;
   background-color: #faf9f6; /* Use site's light background */
   box-sizing: border-box; /* Include padding and border in width */
