@@ -321,7 +321,6 @@ footer {
 }
 
 #backToTop:hover {
-  background: #bbb url('../images/up-arrow.svg') no-repeat center center;
   background-size: 24px;
   transform: translateY(-4px) scale(1.08);
 }
