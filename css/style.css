@@ -128,7 +128,6 @@ header {
   padding: 0;
   background: #fff;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-  position: relative; /* Added to position child elements absolutely */
 }
 
 .centered-image {
@@ -489,21 +488,28 @@ footer {
     justify-content: center !important;
     text-align: center !important;
   }
+}
 
-  .translate-topright {
-    top: 8px;
-    right: 8px;
-    left: auto;
-    width: auto;
-    min-width: 120px;
-    padding: 4px 0;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    z-index: 999;
-  }
+/* Google Translate Widget Positioning */
+#google_translate_element {
+  position: absolute;
+  top: 18px;
+  right: 32px;
+  z-index: 100;
+}
+
+@media (max-width: 768px) {
   #google_translate_element {
-    font-size: 1em !important;
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    right: auto;
+    top: auto;
+  }
+  header {
+    position: relative;
   }
 }
 
@@ -527,15 +533,5 @@ footer {
 
 @keyframes slideUp {
   to { opacity: 1; transform: none; }
-}
-
-/* New CSS rule to position the widget in the top right of the header */
-.translate-topright {
-  position: absolute;
-  top: 16px;
-  right: 24px;
-  z-index: 100;
-  background: transparent;
-  /* Prevent overlap with nav/logo on desktop */
 }
 
