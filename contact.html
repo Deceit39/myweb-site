@@ -12,6 +12,9 @@
 
 <body>
   <header>
+    <div class="translate-topright">
+      <div id="google_translate_element"></div>
+    </div>
     <img src="images/logo-text.svg" width="200" height="200" class="centered-image" alt="Jazhiel's Designs Logo">
     <nav>
       <ul>
@@ -23,6 +26,12 @@
       </ul>
     </nav>
   </header>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <main>
     <h1>Contact Us</h1>
     <p>
