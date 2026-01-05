@@ -128,6 +128,7 @@ header {
   padding: 0;
   background: #fff;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  width: 100%;
 }
 
 .centered-image {
@@ -144,6 +145,7 @@ nav ul {
   justify-content: center;
   align-items: center;
   gap: 0;
+  width: 100%;
 }
 
 nav ul li {
@@ -257,7 +259,7 @@ footer {
   text-align: center;
   padding: 32px 20px;
   border-top: 2px solid #ffb300;
-  max-width: 100vw;  /* Prevent footer from exceeding viewport width */
+  width: 100%;
   box-sizing: border-box; /* Include padding and border in width */
   flex-shrink: 0;
 }
@@ -325,7 +327,7 @@ footer {
 
 
 /* Animations and CTA Button */
-.hero.animated-fadein, .gallery-section.animated-fadein {
+.hero.animated-fadein, .gallery-section.animated-fadein, .service-item.animated-fadein {
   opacity: 0;
   transform: translateY(40px);
   animation: fadeInUp 1.2s cubic-bezier(.23,1.01,.32,1) forwards;
@@ -535,3 +537,220 @@ footer {
   to { opacity: 1; transform: none; }
 }
 
+/* ==========================================================================
+   Services Page Styles
+   ========================================================================== */
+
+.services-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4em;
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+  gap: 3em;
+  padding-bottom: 3em;
+  border-bottom: 1px solid #eee;
+}
+
+.service-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Alternating Layout: Even items reverse direction */
+.service-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.service-text {
+  flex: 1;
+}
+
+.service-text h2 {
+  margin-top: 0;
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.service-image-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.service-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.service-image:hover {
+  transform: scale(1.02);
+}
+
+.service-details-box {
+  background-color: #faf9f6;
+  border-left: 4px solid #ffb300;
+  padding: 1.5em;
+  border-radius: 0 8px 8px 0;
+  margin-top: 1.5em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.service-details-box p {
+  margin-bottom: 0.8em;
+  font-size: 1em;
+}
+
+.service-details-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* Animation Delays for Staggered Effect */
+.service-item.animated-fadein:nth-child(1) { animation-delay: 0.2s; }
+.service-item.animated-fadein:nth-child(2) { animation-delay: 0.4s; }
+.service-item.animated-fadein:nth-child(3) { animation-delay: 0.6s; }
+.service-item.animated-fadein:nth-child(4) { animation-delay: 0.8s; }
+
+@media (max-width: 768px) {
+  .service-item, .service-item:nth-child(even) {
+    flex-direction: column;
+    gap: 1.5em;
+  }
+  
+  .service-image-wrapper {
+    width: 100%;
+  }
+  
+  .service-image {
+    max-width: 100%;
+  }
+}
+
+/* ==========================================================================
+   Slideshow / Carousel Styles
+   ========================================================================== */
+
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: 0 auto 1em auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+  vertical-align: middle;
+  width: 100%;
+  height: 350px; /* Adjust height as needed */
+  object-fit: cover;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 1.5em;
+  padding: 12px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  font-family: 'Oswald', sans-serif;
+  box-sizing: border-box;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0,0,0,0.3);
+  text-decoration: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+  color: #ffb300;
+  text-decoration: none;
+}
+
+/* Pause Button */
+.pause-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.pause-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffb300;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.dot.active, .dot:hover {
+  background-color: #ffb300;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@media only screen and (max-width: 768px) {
+  .mySlides img {
+    height: 200px;
+  }
+  .text {font-size: 1.1em}
+}

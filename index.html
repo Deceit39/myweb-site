@@ -31,6 +31,49 @@
   </script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <main>
+    <!-- Slideshow Banner -->
+    <div class="slideshow-container animated-fadein">
+      
+      <!-- Slide 1 -->
+      <div class="mySlides fade">
+        <a href="services.html">
+          <img src="images/webbanner.jpg" alt="Professional Web Design Services">
+          <div class="text">Professional Web Design</div>
+        </a>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="mySlides fade">
+        <a href="examples.html">
+          <img src="images/logobanner.jpg" alt="Creative Logo Design Portfolio">
+          <div class="text">Unique Logo Designs</div>
+        </a>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="mySlides fade">
+        <a href="contact.html">
+          <img src="images/customquote.jpg" alt="Contact Us for a Quote">
+          <div class="text">Get Your Custom Quote</div>
+        </a>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="mySlides fade">
+        <a href="services.html">
+          <img src="images/stickersnew.jpg" alt="Now offering Stickers!">
+          <div class="text"> Now Offering Stickers!</div>
+        </a>
+      </div>
+
+      <!-- Controls -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      <button id="pauseBtn" class="pause-btn" onclick="togglePause()" aria-label="Pause Slideshow">&#10074;&#10074;</button>
+    </div>
+    <div id="dots-container" style="text-align:center; margin-bottom: 2em;">
+    </div>
+
     <section class="hero animated-fadein">
       <h1>Custom Designs to Build Your Brand</h1>
       <p>
@@ -57,9 +100,9 @@
         </blockquote>
         <blockquote class="animated-slideup" style="max-width:450px; flex: 1 1 300px; background:#ffffff; border-left:4px solid #ffb300; padding:1em 1.5em; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
           <p>
-            "I loved working with Jazhiel Design's! My handmade crafts/jewlery business now has a beautiful logo and website that truly reflect my brand. Thank you for your creativity and attention to detail."
+            "I loved working with Jazhiel Design's! My cleaning business now has a beautiful logo and beautiful buisness cards that truly reflect my brand. Thank you for your creativity and attention to detail."
           </p>
-          <cite style="display:block; margin-top:1em; font-style:normal; color:#222;"><strong>Isa's Studio</strong></cite>
+          <cite style="display:block; margin-top:1em; font-style:normal; color:#222;"><strong>Isabella's Cleaning</strong></cite>
         </blockquote>
       </div>
     </section>
@@ -93,5 +136,67 @@
   </footer>
   <button id="backToTop" title="Back to Top" aria-label="Back to Top"></button>
   <script src="javascript/script.js"></script>
+  <script>
+    let slideIndex = 1;
+    let slideTimer;
+    let isPaused = false;
+
+    // Generate dots automatically based on slide count
+    const slides = document.getElementsByClassName("mySlides");
+    const dotsContainer = document.getElementById("dots-container");
+    
+    for (let i = 0; i < slides.length; i++) {
+      let dot = document.createElement("span");
+      dot.className = "dot";
+      dot.onclick = function() { currentSlide(i + 1); };
+      dotsContainer.appendChild(dot);
+    }
+
+    // Initialize slideshow
+    showSlides(slideIndex);
+
+    // Start automatic cycling
+    slideTimer = setInterval(function() {
+      if (!isPaused) {
+        plusSlides(1);
+      }
+    }, 5000); // Change image every 5 seconds
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    }
+
+    function togglePause() {
+      const btn = document.getElementById("pauseBtn");
+      isPaused = !isPaused;
+      if (isPaused) {
+        btn.innerHTML = "&#9658;"; // Play symbol
+        btn.setAttribute('aria-label', 'Play Slideshow');
+      } else {
+        btn.innerHTML = "&#10074;&#10074;"; // Pause symbol
+        btn.setAttribute('aria-label', 'Pause Slideshow');
+      }
+    }
+  </script>
 </body>
 </html>
